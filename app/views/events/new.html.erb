@@ -1,2 +1,31 @@
 <h1>Events#new</h1>
 <p>Find me in app/views/events/new.html.erb</p>
+
+<% if @cur_user.admin %>
+
+	<%= form_for(@event) do |f| %>
+	    <div class="field">
+	        <p>name</p> 
+	        <%= f.text_field :name%>
+	    </div>
+	    <div class="field">
+	        <p>description</p> 
+	        <%= f.text_field :description%>
+	    </div>
+	    <div class="field">
+	        <p>date</p> 
+	        <%= f.date_field :date%>
+	    </div>
+	    <div class="field">
+	        <p>time</p> 
+	        <%= f.time_field :time%>
+	    </div>
+	    (Add Images)
+	    <div class="actions">
+	        <%= f.submit %>
+	    </div>
+	<% end %>
+
+<% else %>
+	PERMISSION DENIED.
+<% end %>

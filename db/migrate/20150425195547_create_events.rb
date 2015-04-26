@@ -2,8 +2,12 @@ class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
       t.string :name
-      t.integer :attendance
-      t.integer :thumbs
+      t.text	:description
+      t.date	:date
+      t.time 	:time
+      t.integer :attendance,    default: 0
+      t.integer :thumbs_up,     default: 0
+      t.integer	:thumbs_down,   default: 0
 
       t.timestamps null: false
     end

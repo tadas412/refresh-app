@@ -15,10 +15,14 @@ ActiveRecord::Schema.define(version: 20150425200755) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
+    t.text     "description"
+    t.date     "date"
+    t.time     "time"
     t.integer  "attendance"
-    t.integer  "thumbs"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "thumbs_up"
+    t.integer  "thumbs_down"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -30,12 +34,17 @@ ActiveRecord::Schema.define(version: 20150425200755) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "user_name",              default: "",    null: false
+    t.integer  "num_reviews",            default: 0
+    t.integer  "num_events",             default: 0
+    t.float    "avg_rating",             default: 0.0
+    t.boolean  "admin",                  default: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

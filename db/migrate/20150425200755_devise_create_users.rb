@@ -2,11 +2,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
 
-      t.string :user_name,
-      t.integer :num_reviews,
-      t.integer :num_events,
-      t.float :avg_rating,
-      t.boolean :admin,
+      t.string :user_name,          null: false, default: ""
+      t.integer :num_reviews,       default: 0
+      t.integer :num_events,        default: 0
+      t.float :avg_rating,          default: 0.0
+      t.boolean :admin,             default: false
       
       ## Database authenticatable
       t.string :email,              null: false, default: ""
