@@ -1,0 +1,25 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+
+<body>
+	<%= @user.user_name %>
+	<% if @user.admin %>
+		<strong> (Administrator) </strong>
+	<% end %> <br>
+	(Profile Pic) <br>
+	# Reviews: <%= @user.num_reviews %> <br>
+	# Events Attended: <%= @user.num_events %> <br>
+	Average Rating: <%= @user.avg_rating %><br>
+	Email Address: <%= @user.email %> <br>
+	REVIEWS... <br>
+	<% @reviews.zip(@events).each do |review, event| %>
+		<tr>
+			<td><%= event.name %></td>
+			<td><%= review.rating %></td>
+			<td><%= review.thumbs %></td>
+			<td><%= review.review %></td>
+			<td><%= link_to "view event", event_path(event.id) %></td>
+		</tr>
+	<% end %>
+</body>
