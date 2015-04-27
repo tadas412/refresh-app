@@ -16,19 +16,22 @@ ActiveRecord::Schema.define(version: 20150425200755) do
   create_table "events", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.float    "rating"
     t.date     "date"
     t.time     "time"
-    t.integer  "attendance"
-    t.integer  "thumbs_up"
-    t.integer  "thumbs_down"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "attendance",  default: 0
+    t.integer  "thumbs_up",   default: 0
+    t.integer  "thumbs_down", default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.float    "rating"
     t.text     "review"
     t.integer  "thumbs"
+    t.integer  "event_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

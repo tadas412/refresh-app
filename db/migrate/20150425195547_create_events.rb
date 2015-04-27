@@ -3,6 +3,7 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :name
       t.text	:description
+      t.float :rating,          default: nil
       t.date	:date
       t.time 	:time
       t.integer :attendance,    default: 0

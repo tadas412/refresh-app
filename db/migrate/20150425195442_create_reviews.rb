@@ -4,6 +4,8 @@ class CreateReviews < ActiveRecord::Migration
       t.float :rating
       t.text :review
       t.integer :thumbs
+      t.integer :event_id
+      t.integer :user_id
 
       t.timestamps null: false
     end
