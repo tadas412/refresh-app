@@ -10,6 +10,6 @@
 
 <%= @greeting %>, find me in app/views/notifications/new_event.text.erb
     <h1>Event <%= @event.name %> has been posted!</h1>
-    <p>Go to <%= link_to "this page", event_path(@event.id) %> to submit your feedback.</p>
+    <p>Go to <%= link_to "this page", event_url(@event.id) %> to submit your feedback.</p>
   </body>
 </html>
