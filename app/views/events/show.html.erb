@@ -4,4 +4,4 @@ Description: <%= @event.description %> <br>
 Attendance: <%= @event.attendance %> { (I attended) | (Did not attend) } <br>
 Thumbs Up: <%= @event.thumbs_up %> <br>
 Thumbs Down: <%= @event.thumbs_down %> <br>
-(Add Feedback)
+<%= link_to "Add Feedback", new_review_path(id: @event.id, name: @event.name) %>
