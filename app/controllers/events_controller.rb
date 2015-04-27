@@ -20,6 +20,11 @@ class EventsController < ApplicationController
 
   def show
   	@event = Event.find(params[:id])
+    @reviews = Review.where(:event_id => @event.id)
+    @users = []
+    @reviews.each do |review| 
+      @users.push(User.find(review.user_id))
+    end
   end
 
   def edit
