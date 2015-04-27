@@ -17,7 +17,7 @@
 		<td><%= link_to "view", event_path(event.id) %></td>
 		<% if @cur_user.admin %>
  			<td><%= link_to "edit", edit_event_path(event.id) %></td>
- 			<td><%= link_to "delete", event, method: :delete %> </td>
+ 			<td><%= button_to "delete", event, method: :delete %> </td>
  		<% end %>
 	</tr>
 	<% end %>
