@@ -78,4 +78,9 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { :host => 'refresh-application.herokuapp.com'}
+  config.action_mailer.smtp_settings = {
+    :address => 'smtp.sendgrid.net',
+    :port => '587',
+    :user_name => ENV['SENDGRID_USERNAME'], :password => ENV['SENDGRID_PASSWORD'], :domain => 'refresh-application.herokuapp.com'
+  }
 end

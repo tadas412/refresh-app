@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   def create
   	@event = Event.new(event_params)
   	if @event.save
-      NewEventNotifier.send_new_event_email(@event).deliver
+      Notifications.new_event(@event).deliver
   		redirect_to events_path
   	else
   		render 'new'
