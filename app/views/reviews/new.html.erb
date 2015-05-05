@@ -1,11 +1,6 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
-
 Creating review for event: <%= @event_name %>
 
-
 <%= form_for(@review) do |f| %>
-    <%=params%>
 	<div class="field">
         <%= f.hidden_field :event_id, value: @event_id%>
     </div>
@@ -13,16 +8,15 @@ Creating review for event: <%= @event_name %>
         <%= f.hidden_field :user_id, value: @cur_user.id%>
     </div>
     <div class="field">
-        <p>rating</p> 
+        Rating: 
         <%= f.number_field :rating, options = {in: 0..10}%>
     </div>
     <div class="field">
-        <p>thumbs</p> 
         Thumbs Up? <%= f.radio_button :thumbs, 1 %> <br>
         Thumbs Down? <%= f.radio_button :thumbs, 2 %>
     </div>
     <div class="field">
-        <p>review</p> 
+        Review: 
         <%= f.text_field :review%>
     </div>
     <div class="actions">
