@@ -1,28 +1,34 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="col-md-12">
 
-<table>
-	<tr>
-		<td>name</td>
-		<td>attendance</td>
-		<td>thumbs_up</td>
-		<td>thumbs_down</td>
-	</tr>
-	<% @events.each do |event| %>
-	<tr>
-		<td><%= event.name %></td>
-		<td><%= event.attendance %> | (I attended) - (I did not attend)</td>
-		<td><%= event.thumbs_up %></td>
-		<td><%= event.thumbs_down %></td>
-		<td><%= link_to "view", event_path(event.id) %></td>
-		<% if @cur_user.admin %>
- 			<td><%= link_to "edit", edit_event_path(event.id) %></td>
- 			<td><%= button_to "delete", event, method: :delete %> </td>
- 		<% end %>
-	</tr>
-	<% end %>
-
+	<table class="table table-condensed">
+		<tr>
+			<td>Event Name</td>
+			<td># Thumbs Up</td>
+			<td># Thumbs Down</td>
+			<% if @cur_user.admin %>
+				<td></td>
+				<td></td>
+			<% end %>
+		</tr>
+		<% @events.each do |event| %>
+		<tr>
+			<td><%= link_to event.name, event_path(event.id) %></td>
+			<td><%= event.thumbs_up %></td>
+			<td><%= event.thumbs_down %></td>
+			<% if @cur_user.admin %>
+	 			<td><%= link_to "Edit", edit_event_path(event.id) %></td>
+	 			<td><%= button_to "Delete", event, method: :delete %> </td>
+	 		<% end %>
+		</tr>
+		<% end %>
+	</table>
+	
 	<% if @cur_user.admin %>
-		<a href="/events/new">Add New Event</a>
+		<form action=<%=new_event_path%>>
+			<div class="form-group">
+				 	<%= submit_tag "Add New Event", options = {class: "btn btn-default", style: "display: block; width: 100%;"}%>
+			</div>
+		</form> 
 	<% end %>
-</table>
+
+</div>

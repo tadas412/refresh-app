@@ -4,7 +4,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       t.string :user_name,          null: false, default: ""
       t.integer :num_reviews,       default: 0
-      t.integer :num_events,        default: 0
       t.float :avg_rating,          default: 0.0
       t.boolean :admin,             default: false
       

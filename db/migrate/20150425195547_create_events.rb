@@ -6,7 +6,6 @@ class CreateEvents < ActiveRecord::Migration
       t.float :rating,          default: nil
       t.date	:date
       t.time 	:time
-      t.integer :attendance,    default: 0
       t.integer :thumbs_up,     default: 0
       t.integer	:thumbs_down,   default: 0
 

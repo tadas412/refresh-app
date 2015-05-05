@@ -14,7 +14,7 @@ FEEDBACK...
 	</tr> <br>
 	<% @reviews.zip(@users).each do |review, user| %>
 		<tr>
-			<td><%= user.user_name%></td>
+			<td><%= link_to user.user_name, user_path(user.id) %></td> 
 			<td><%= review.rating %></td>
 			<td><%= review.thumbs == 1 ? "Up" : (review.thumbs == 2 ? "Down" : "" ) %></td>
 			<td><%= review.review %></td>

@@ -7,19 +7,16 @@
 		<td>user_name</td>
 		<td>email</td>
 		<td>num_reviews</td>
-		<td>num_events</td>
 		<td>avg_rating</td>
 		<td>admin?</td>
 	</tr>
 	<% @users.each do |user| %>
 	<tr>
-		<td><%= user.user_name %></td>
+		<td><%= link_to user.user_name, user_path(user.id) %></td>
 		<td><%= user.email %></td>
 		<td><%= user.num_reviews %></td>
-		<td><%= user.num_events %></td>
 		<td><%= user.avg_rating %></td>
 		<td><%= user.admin %></td>
-		<td><%= link_to "view", user_path(user.id) %></td>
 		<% if @cur_user.admin and @cur_user.id != user.id %>
 			<% if user.admin %>
 				<td> 
