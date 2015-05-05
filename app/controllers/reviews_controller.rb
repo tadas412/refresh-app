@@ -9,7 +9,11 @@ class ReviewsController < ApplicationController
   def create
   	@review = Review.new(review_params)
   	if @review.save
-  		redirect_to event_path(params[:review][:event_id])
+      @user = User.find(@review.user_id)
+      @user.num_reviews += 1
+      @user.avg_rating = (@user.avg_rating * (@user.num_reviews - 1) + @review.rating) / @user.num_reviews
+  		@user.save
+      redirect_to event_path(params[:review][:event_id])
   	else
   		render 'new'
   	end

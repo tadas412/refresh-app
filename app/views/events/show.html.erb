@@ -4,13 +4,21 @@ Description: <%= @event.description %> <br>
 Attendance: <%= @event.attendance %> { (I attended) | (Did not attend) } <br>
 Thumbs Up: <%= @event.thumbs_up %> <br>
 Thumbs Down: <%= @event.thumbs_down %> <br>
-FEEDBACK... <br>
-<% @reviews.zip(@users).each do |review, user| %>
+FEEDBACK... 
+<table>
 	<tr>
-		<td><%= user.user_name%></td>
-		<td><%= review.rating %></td>
-		<td><%= review.thumbs %></td>
-		<td><%= review.review %></td>
+		<td>User Name</td>
+		<td>Review Rating</td>
+		<td>Thumbs Up / Down</td>
+		<td>Review Text</td>
 	</tr> <br>
-<% end %> <br>
+	<% @reviews.zip(@users).each do |review, user| %>
+		<tr>
+			<td><%= user.user_name%></td>
+			<td><%= review.rating %></td>
+			<td><%= review.thumbs == 1 ? "Up" : (review.thumbs == 2 ? "Down" : "" ) %></td>
+			<td><%= review.review %></td>
+		</tr> <br>
+	<% end %> <br>
+</table>
 <%= link_to "Add Feedback", new_review_path(id: @event.id, name: @event.name) %>

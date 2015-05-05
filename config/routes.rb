@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  get "search", to: "application#search"
+
+  post "make_admin", to: "users#make_admin"
+  post "remove_admin", to: "users#remove_admin"
+
   resources :reviews, :events
 
   # The priority is based upon order of creation: first created -> highest priority.

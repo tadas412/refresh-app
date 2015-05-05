@@ -13,13 +13,21 @@
 	Average Rating: <%= @user.avg_rating %><br>
 	Email Address: <%= @user.email %> <br>
 	REVIEWS... <br>
-	<% @reviews.zip(@events).each do |review, event| %>
+	<table>
 		<tr>
-			<td><%= event.name %></td>
-			<td><%= review.rating %></td>
-			<td><%= review.thumbs %></td>
-			<td><%= review.review %></td>
-			<td><%= link_to "view event", event_path(event.id) %></td>
+			<td>Event Name</td>
+			<td>Review Rating</td>
+			<td>Thumbs Up/Down</td>
+			<td>Review Text</td>
 		</tr>
-	<% end %>
+		<% @reviews.zip(@events).each do |review, event| %>
+			<tr>
+				<td><%= event.name %></td>
+				<td><%= review.rating %></td>
+				<td><%= review.thumbs == 1 ? "Up" : (review.thumbs == 2 ? "Down" : "" ) %></td>
+				<td><%= review.review %></td>
+				<td><%= link_to "view event", event_path(event.id) %></td>
+			</tr>
+		<% end %>
+	</table>
 </body>

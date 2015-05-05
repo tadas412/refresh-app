@@ -2,4 +2,10 @@
 
 <%= link_to "Users", users_path %> <br>
 <%= link_to "Events", events_path %> <br>
-(Search)
+<%= form_tag search_path, method: :get do%>
+    <%= hidden_field_tag(:show_events, true) %>
+    <%= hidden_field_tag(:show_reviews, true) %>
+    <%= hidden_field_tag(:show_users, true) %>
+    <%= text_field_tag :search %>
+    <%= submit_tag "Search"%>
+ <% end %>
