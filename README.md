@@ -1,8 +1,35 @@
 # Refresh
 
-<h2> Initial Final Project Proposal </h2>
+<h2> High Level Description of Application </h2>
 
-<h2> Final High Level Description of Application </h2>
+<i> Refresh </i> is designed for use by (student) organizations that regularly host events, whether they be social, philanthropic, sport, etc. The target types of organizations include Class Board, fraternities & sororities, senior societies, and so forth. 
+
+One instance of Refresh is intended to be used by a single organization. The organizations members make accounts on the page, where they are users (there can be one or more administrators per page). Administrators can put up events that have occured, and users (as well as administrators) can provide feedback for the events, in the form of ratings or free-response text. 
+
+The intent is for organizations to have a log of what their members think of events, be able to identify what their membership prefers, why they prefer it, etc. This app could be expanded to become a more fully featured log in addition to its feedback-gathering capabilities: adding image uploading would allow the administrators to provide something of value for the users, and more detailed feedback fields (as opposed to just ratings and free form text) would provide more valuable data. There could also be more community elements added by facilitating interaction (in the form of replies, rating feedbacks, discussions) between users.
+
+Below is a mostly comprehensive list of the features you'll find 
+
+<h2> Feature List </h2>
+
+In no particular order:
+
+<ul>
+<li> Custom rake command for creating the first admin (rake promote_admin) </li>
+<li> Provided default admin account. Email: admin@cis196.com Pass: administrator </li>
+<li> Events & Users index listing </li>
+<li> Event edit / delete function only available to admins </li>
+<li> Make admin / remove admin function only available to admins, and not on yourself </li>
+<li> Much of site is Bootstrapped to make it visually appealing </li>
+<li> Full use of Devise gem for user management </li>
+<li> Use of sendgrid gem for sending emails: when a new event is posted, all users get an email </li>
+<li> All Event Names and User Names are hyperlinked to the corresponding Show pages </li>
+<li> All users have ability to "Add Feedback" from an Event's page </li>
+<li> When a user adds feedback, relevant user & event statistics are updated and saved </li>
+<li> Search function initially searches for Event Names, User Names, and Review Text </li>
+<li> Can filter down what you're searching for after performing an initial search to one or two of those cateogires </li>
+<li> User profile pages display stats, as well as all the reviews that they've written </li>
+</ul>
 
 <h2> Log of what was done (and who did what) </h2>
 
@@ -88,8 +115,7 @@ Had some null pointer issues because of my edits to index. Made the events/index
 
 Bootstrap was a new experience for me. Surprisingly easy to use - can't wait to apply it to other small projects that I might undertake. Sometimes it was difficult forcing myself to figure out how to use Bootstrap to get something done (centering, etc) as opposed to reverting to raw HTML or CSS coding. 
 
-
-
+Throughout production, I was fortunate to never experience any problems that I wasn't able to solve by simply reviewing documentation or researching online to find those who had experienced similar problems. 
 
 <h2> Link to the corresponding Heroku site </h2>
 
