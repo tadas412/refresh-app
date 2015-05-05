@@ -1,22 +1,26 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="col-md-12">
 
+	<center>
+		<h2> 
+			<%= @user.user_name %> 
+			<% if @user.admin %>
+				<strong> (Administrator) </strong>
+			<% end %>
+		</h2>
+		<h3> # Reviews: <strong> <%= @user.num_reviews %> </strong> </h3>
+		<h3> Average Rating: <strong> <%= @user.avg_rating %> </strong> </h3>
+		<h3> Email Address: <strong> <%= @user.email %> </strong> </h3>
+	</center>
 
-<body>
-	<%= @user.user_name %>
-	<% if @user.admin %>
-		<strong> (Administrator) </strong>
-	<% end %> <br>
-	(Profile Pic) <br>
-	# Reviews: <%= @user.num_reviews %> <br>
-	Average Rating: <%= @user.avg_rating %><br>
-	Email Address: <%= @user.email %> <br>
-	REVIEWS... <br>
-	<table>
+	<center> 
+		<h3> Reviews </h3>
+	</center>
+
+	<table class="table table-condensed">
 		<tr>
 			<td>Event Name</td>
 			<td>Review Rating</td>
-			<td>Thumbs Up/Down</td>
+			<td>Thumbs Up / Down</td>
 			<td>Review Text</td>
 		</tr>
 		<% @reviews.zip(@events).each do |review, event| %>
@@ -28,4 +32,5 @@
 			</tr>
 		<% end %>
 	</table>
-</body>
+
+</div>

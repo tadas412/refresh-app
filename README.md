@@ -4,8 +4,7 @@
 
 <h2> Final High Level Description of Application </h2>
 
-
-<h2> Explanation of what was done (and who did what) </h2>
+<h2> Log of what was done (and who did what) </h2>
 
 <i> First Assignment </i>
 
@@ -53,7 +52,7 @@ Added the use of 4 queries to the app.
 
 Progress towards final product: added a search function to the navbar. This allows users to search for events that have happened in the past, displays a list of matches, and upon click navigates you to that event's page. Not as substantial an addition as I would have hoped to accomplish by this marker, will be sure to ramp it up soon.
 
-
+Note that, for the seventh and final assignment, I scrapped most of what I had done to this point and rebuilt everything you see in the final product (re-used some bits of code). 
 
 <h2> Challenges encountered, and how they were solved </h2>
 
@@ -84,6 +83,12 @@ Implementing the first two queries was straightforward - very similar to methods
 <i> Sixth Assignment </i>
 
 Had some null pointer issues because of my edits to index. Made the events/index erb take it into account by checking for a nil @pop_event variable. 
+
+<i> Seventh Assignment </i>
+
+Bootstrap was a new experience for me. Surprisingly easy to use - can't wait to apply it to other small projects that I might undertake. Sometimes it was difficult forcing myself to figure out how to use Bootstrap to get something done (centering, etc) as opposed to reverting to raw HTML or CSS coding. 
+
+
 
 
 <h2> Link to the corresponding Heroku site </h2>
