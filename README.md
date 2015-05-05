@@ -1,5 +1,10 @@
 # Refresh
 
+<h2> Initial Final Project Proposal </h2>
+
+<h2> Final High Level Description of Application </h2>
+
+
 <h2> Explanation of what was done (and who did what) </h2>
 
 <i> First Assignment </i>
