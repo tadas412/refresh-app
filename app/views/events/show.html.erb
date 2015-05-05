@@ -1,24 +1,41 @@
-<%= @event.name %> <br>
-Rating: <%= @event.rating %> <br>
-Description: <%= @event.description %> <br>
-Attendance: <%= @event.attendance %> { (I attended) | (Did not attend) } <br>
-Thumbs Up: <%= @event.thumbs_up %> <br>
-Thumbs Down: <%= @event.thumbs_down %> <br>
-FEEDBACK... 
-<table>
-	<tr>
-		<td>User Name</td>
-		<td>Review Rating</td>
-		<td>Thumbs Up / Down</td>
-		<td>Review Text</td>
-	</tr> <br>
-	<% @reviews.zip(@users).each do |review, user| %>
+<center>
+<h2> <%= @event.name %> </h2>
+<h3> Rating: <strong> <%= @event.rating %> </strong> </h3>
+<h3> Description: <strong> <%= @event.description %> </strong> </h3>
+<h3> # Thumbs Up: <strong> <%= @event.thumbs_up %> </strong> </h3>
+<h3> # Thumbs Down: <strong> <%= @event.thumbs_down %> </strong> </h3>
+</center>
+
+
+<div class="col-md-12">
+
+	<center> 
+		<h3> Feedback </h3>
+	</center>
+
+	<table class="table table-condensed">
 		<tr>
-			<td><%= link_to user.user_name, user_path(user.id) %></td> 
-			<td><%= review.rating %></td>
-			<td><%= review.thumbs == 1 ? "Up" : (review.thumbs == 2 ? "Down" : "" ) %></td>
-			<td><%= review.review %></td>
-		</tr> <br>
-	<% end %> <br>
-</table>
-<%= link_to "Add Feedback", new_review_path(id: @event.id, name: @event.name) %>
+			<td>User Name</td>
+			<td>Review Rating</td>
+			<td>Thumbs Up / Down</td>
+			<td>Review Text</td>
+		</tr>
+		<% @reviews.zip(@users).each do |review, user| %>
+			<tr>
+				<td><%= link_to user.user_name, user_path(user.id) %></td> 
+				<td><%= review.rating %></td>
+				<td><%= review.thumbs == 1 ? "Up" : (review.thumbs == 2 ? "Down" : "" ) %></td>
+				<td><%= review.review %></td>
+			</tr>
+		<% end %>
+	</table>
+
+	<form action=<%=new_review_path%>>
+		<div class="form-group">
+			<%= hidden_field_tag(:id, @event.id) %>
+			<%= hidden_field_tag(:name, @event.name) %>
+			<%= submit_tag "Add Feedback", options = {class: "btn btn-default", style: "display: block; width: 100%;"}%>
+		</div>
+	</form> 
+
+</div>

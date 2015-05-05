@@ -5,6 +5,7 @@ Creating review for event: <%= @event_name %>
 
 
 <%= form_for(@review) do |f| %>
+    <%=params%>
 	<div class="field">
         <%= f.hidden_field :event_id, value: @event_id%>
     </div>

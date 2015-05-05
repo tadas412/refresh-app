@@ -1,39 +1,44 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="col-md-12">
 
-
-<table>
-	<tr>
-		<td>user_name</td>
-		<td>email</td>
-		<td>num_reviews</td>
-		<td>avg_rating</td>
-		<td>admin?</td>
-	</tr>
-	<% @users.each do |user| %>
-	<tr>
-		<td><%= link_to user.user_name, user_path(user.id) %></td>
-		<td><%= user.email %></td>
-		<td><%= user.num_reviews %></td>
-		<td><%= user.avg_rating %></td>
-		<td><%= user.admin %></td>
-		<% if @cur_user.admin and @cur_user.id != user.id %>
-			<% if user.admin %>
-				<td> 
-					<%= form_tag("/remove_admin", method: "post") do %> 
-						<%= hidden_field_tag :user_id, user.id %>
-						<%= submit_tag "Remove Admin" %> 
-					<% end %> 
-				</td>
-			<% else %>
-				<td> 
-					<%= form_tag("/make_admin", method: "post") do %> 
-						<%= hidden_field_tag :user_id, user.id %>
-						<%= submit_tag "Make Admin" %> 
-					<% end %> 
-				</td>
+	<table class="table table-condensed">
+		<tr>
+			<td>user_name</td>
+			<td>email</td>
+			<td>num_reviews</td>
+			<td>avg_rating</td>
+			<td>admin?</td>
+			<% if @cur_user.admin %>
+				<td></td>
 			<% end %>
+		</tr>
+		<% @users.each do |user| %>
+		<tr>
+			<td><%= link_to user.user_name, user_path(user.id) %></td>
+			<td><%= user.email %></td>
+			<td><%= user.num_reviews %></td>
+			<td><%= user.avg_rating %></td>
+			<td><%= user.admin %></td>
+			<% if @cur_user.admin and @cur_user.id != user.id %>
+				<% if user.admin %>
+					<td> 
+						<%= form_tag("/remove_admin", method: "post") do %> 
+							<%= hidden_field_tag :user_id, user.id %>
+							<%= submit_tag "Remove Admin" %> 
+						<% end %> 
+					</td>
+				<% else %>
+					<td> 
+						<%= form_tag("/make_admin", method: "post") do %> 
+							<%= hidden_field_tag :user_id, user.id %>
+							<%= submit_tag "Make Admin" %> 
+						<% end %> 
+					</td>
+				<% end %>
+			<% else %>
+				<td></td>
+			<% end %>
+		</tr>
 		<% end %>
-	</tr>
-	<% end %>
-</table>
+	</table>
+
+</div>
